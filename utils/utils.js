@@ -1,6 +1,12 @@
 import { db } from "./firestoreConfig.js";
-import { collection, getDocs, getDoc, query, where, doc } from "firebase/firestore";
-
+import {
+  collection,
+  getDocs,
+  getDoc,
+  query,
+  where,
+  doc,
+} from "firebase/firestore";
 
 export const selectAllEvents = () => {
   getDocs(collection(db, "events"))
@@ -10,7 +16,7 @@ export const selectAllEvents = () => {
         eventsArray.push({ ...doc.data(), id: doc.id });
       });
       console.log(eventsArray);
-      return eventsArray
+      return eventsArray;
     })
     .catch((err) => {
       console.log(err);
@@ -26,7 +32,7 @@ export const selectEventsByUser = (user_id) => {
         eventsArray.push({ ...doc.data(), id: doc.id });
       });
       console.log(eventsArray);
-      return eventsArray
+      return eventsArray;
     })
     .catch((err) => {
       console.log(err);
@@ -35,12 +41,11 @@ export const selectEventsByUser = (user_id) => {
 
 export const selectEventById = (eventId) => {
   const docRef = doc(db, "events", eventId);
-  getDoc(docRef).then((snapshot) => {
-    const event = snapshot.data()
-    console.log(event)
-    return event
-});
-}
+  return getDoc(docRef).then((snapshot) => {
+    const event = snapshot.data();
+    return event;
+  });
+};
 // export const addNewEvent = (newEvent) => {
 //   const colRef = doc(db, "events");
 //   setDoc(colRef, newEvent)
