@@ -3,18 +3,27 @@ import React from "react";
 import { styles } from "./SingleEvent.style";
 
 //API call to get event details
-//Mock details for visualisation only
+//selectEventsByEventID(eventID)
+
+//Example of request
 const eventDetails = {
-  title: "EVENT TITLE",
+  attendees: ["-MqFbx--rZQ1MsDKnDxB"],
+  category: "running",
+  date: "15/12/2021",
+  description: "Explosion and rupture of pressurized-gas tank, init encntr",
+  host_id: "MqFbwzzuLbOhneGLtDs",
+  id: "-MqFdV5ywbsGMVlV_Dvc",
   location: "manchester",
-  category: "Running",
-  description: "Hey, I want to go running and a buddy would be nice",
-  date: "23/01/2022 10:00 am",
+  max_capacity: 5,
+  pending_attendees: [""],
+  title: "Running",
 };
 
+//Api call to get host details using eventDetails.host_id async/await?
+//selectUserByUserId(eventDetails.host_id)
+
 const hostDetails = {
-  name: "Will",
-  bio: "Hey, I'm a jfnvenv jfnwn ndoenv eoinroe nvoiernor oivneron ieono eori oien ie",
+  first_name: "Lilias",
 };
 
 export const SingleEvent = ({ navigation }) => {
@@ -26,6 +35,9 @@ export const SingleEvent = ({ navigation }) => {
         <Text style={styles.text}>Category: {eventDetails.category}</Text>
         <Text style={styles.text}>Description: {eventDetails.description}</Text>
         <Text style={styles.text}>Date: {eventDetails.date}</Text>
+        <Text style={styles.text}>
+          Places: {eventDetails.attendees.length}/{eventDetails.max_capacity}
+        </Text>
         <Pressable
           style={styles.pressable}
           onPress={() => {
@@ -38,8 +50,7 @@ export const SingleEvent = ({ navigation }) => {
       </View>
       <View style={styles.view}>
         <Text style={styles.text}>About the host:</Text>
-        <Text style={styles.text}>Host: {hostDetails.name}</Text>
-        <Text style={styles.text}>About me: {hostDetails.bio}</Text>
+        <Text style={styles.text}>Host: {hostDetails.first_name}</Text>
         <Pressable
           onPress={() => {
             //Navigate back to EventsList when added to repo
