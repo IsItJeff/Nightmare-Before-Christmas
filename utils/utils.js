@@ -1,8 +1,8 @@
-import  db  from "./firestoreConfig.js";
-import { collection, getDocs, query, where, setDoc, doc } from "firebase/firestore";
+import { db } from "./firestoreConfig.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 
-const selectAllEvents = () => {
+export const selectAllEvents = () => {
   getDocs(collection(db, "events"))
     .then((snapshot) => {
       let eventsArray = [];
@@ -16,7 +16,7 @@ const selectAllEvents = () => {
     });
 };
 
-const selectEventsByUser = (user_id) => {
+export const selectEventsByUser = (user_id) => {
   const q = query(collection(db, "events"), where("host_id", "==", user_id));
 
   getDocs(q)
@@ -51,7 +51,4 @@ const selectEventsByUser = (user_id) => {
 //     image_bitmap: '8098203360'
 //   })
 
-selectAllEvents()
-selectEventsByUser("-MqFbx--rZQ1MsDKnDxB")
 
-export default selectAllEvents

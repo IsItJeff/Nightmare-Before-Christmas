@@ -1,10 +1,20 @@
-const { initializeApp } = require("firebase/app");
-const { getFirestore } = require("firebase/firestore");
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
+import {
+  DB_APIKEY, DB_AUTHDOMAIN, DB_URL, DB_PROJECTID, DB_BUCKET, DB_MESSAGINGSENDERID, DB_APPID, DB_MEASUREMENTID
+} from '@env';
 
-initializeApp({
-  projectId: "project-61d45",
-});
+const firestoreConfig = {
+  apiKey: DB_APIKEY,
+  authDomain: DB_AUTHDOMAIN,
+  databaseURL: DB_URL,
+  projectId: DB_PROJECTID,
+  storageBucket: DB_BUCKET,
+  messagingSenderId: DB_MESSAGINGSENDERID,
+  appId: DB_APPID,
+  measurementId: DB_MEASUREMENTID
+};
 
-const db = getFirestore();
+export const firebaseApp = initializeApp(firestoreConfig);
 
-module.exports = { db };
+export const db = getFirestore();

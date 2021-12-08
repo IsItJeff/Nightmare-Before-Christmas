@@ -11,7 +11,7 @@ import {
 import { FirebaseRecaptchaVerifierModal, FirebaseRecaptchaBanner, FirebaseAuthApplicationVerifier } from 'expo-firebase-recaptcha';
 import { getAuth, PhoneAuthProvider, signInWithCredential, ApplicationVerifier } from 'firebase/auth';
 import { getApp } from 'firebase/app';
-import { firebaseApp } from "../../utils/config"
+import { firebaseApp } from "../../utils/firestoreConfig"
 
 const app = getApp();
 const auth = getAuth();

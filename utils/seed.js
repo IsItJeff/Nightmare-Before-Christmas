@@ -1,10 +1,10 @@
-const { db } = require("./firestoreConfig");
-const { doc, setDoc } = require("firebase/firestore");
-const usersData = require("../data/users.json");
-const eventsData = require("../data/events.json");
-const chatsData = require("../data/chats.json");
+import { db } from "./firestoreConfig";
+import { doc, setDoc } from "firebase/firestore";
+import usersData from "../data/users.json";
+import eventsData from "../data/events.json";
+import chatsData from "../data/chats.json";
 
-exports.seedData = () => {
+export const seedData = () => {
   const userIdArray = Object.keys(usersData);
   const eventIdArray = Object.keys(eventsData);
   const chatIdArray = Object.keys(chatsData);
@@ -40,5 +40,3 @@ exports.seedData = () => {
     });
   }
 };
-
-exports.seedData();
