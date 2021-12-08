@@ -2,26 +2,36 @@
   "-MqFbwzzuLbOhneGLtDs": {
     "first_name": "Lilias",
     "last_name": "Mattson",
-    "image_bitmap": "9125382012"
+    "image_bitmap": "9125382012",
+    "hosted_events" : ["-MqFdV5ywbsGMVlV_Dvc","-MqFdV6-4eS7u0NojUhc"],
+    "requested_events" : ["-MqFdV61nNp5BqUqDNqU"]
   },
   "-MqFbx--rZQ1MsDKnDxB": {
     "first_name": "Lindsey",
     "last_name": "Riddlesden",
-    "image_bitmap": "2392568308"
+    "image_bitmap": "2392568308",
+    "hosted_events" : ["-MqFdV61nNp5BqUqDNqU"],
+    "requested_events" : ["-MqFdV5ywbsGMVlV_Dvc"]
   },
   "-MqFbx-1VrkhVGHYYpLX": {
     "first_name": "Gerhardt",
     "last_name": "Kerrod",
-    "image_bitmap": "3177265054"
+    "image_bitmap": "3177265054",
+    "hosted_events" : ["-MqFdV62x4N1HYFKYd8a"],
+    "requested_events" : [""]
   },
   "-MqFbx-3zbETE2gRo5pI": {
     "first_name": "Bruno",
     "last_name": "Dewane",
-    "image_bitmap": "8098203360"
+    "image_bitmap": "8098203360",
+    "hosted_events" : ["-MqFdV64GrCmmGLhLAs_"],
+    "requested_events" : [""]
   },
   "-MqFbx-4SAgvThoRMbjN": {
     "first_name": "Joelynn",
     "last_name": "Rickcord",
-    "image_bitmap": "2569174424"
+    "image_bitmap": "2569174424",
+    "hosted_events" : [""],
+    "requested_events" : ["-MqFdV64GrCmmGLhLAs_"]
   }
 }

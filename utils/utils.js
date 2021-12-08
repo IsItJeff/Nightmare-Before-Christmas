@@ -1,5 +1,5 @@
 import { db } from "./firestoreConfig.js";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, getDoc, query, where, doc } from "firebase/firestore";
 
 
 export const selectAllEvents = () => {
@@ -10,6 +10,7 @@ export const selectAllEvents = () => {
         eventsArray.push({ ...doc.data(), id: doc.id });
       });
       console.log(eventsArray);
+      return eventsArray
     })
     .catch((err) => {
       console.log(err);
@@ -18,7 +19,6 @@ export const selectAllEvents = () => {
 
 export const selectEventsByUser = (user_id) => {
   const q = query(collection(db, "events"), where("host_id", "==", user_id));
-
   getDocs(q)
     .then((snapshot) => {
       let eventsArray = [];
@@ -26,15 +26,24 @@ export const selectEventsByUser = (user_id) => {
         eventsArray.push({ ...doc.data(), id: doc.id });
       });
       console.log(eventsArray);
+      return eventsArray
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-// exports.insertNewEvent = (eventObject) => {
-//   const newPost = doc(db, "events");
-//   setDoc(newPost, eventObject)
+export const selectEventById = (eventId) => {
+  const docRef = doc(db, "events", eventId);
+  getDoc(docRef).then((snapshot) => {
+    const event = snapshot.data()
+    console.log(event)
+    return event
+});
+}
+// export const addNewEvent = (newEvent) => {
+//   const colRef = doc(db, "events");
+//   setDoc(colRef, newEvent)
 //     .then(() => {
 //       console.log("new event added");
 //     })
@@ -43,12 +52,7 @@ export const selectEventsByUser = (user_id) => {
 //     });
 // };
 
-// // INSERT DATA FORMAT AS 
-
-// exports.insertNewEvent({
-//     first_name: 'Bruno',
-//     last_name: 'Dewane',
-//     image_bitmap: '8098203360'
-//   })
-
-
+// export const addNewEvent = (newEvent) => {
+//   const colRef = doc(db, "events")
+//   addDoc(colRef, newEvent)
+// }
